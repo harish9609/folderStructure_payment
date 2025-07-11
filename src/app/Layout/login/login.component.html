@@ -1,0 +1,49 @@
+<div class="login-box">
+  <h2 class="text-center mb-4">Login</h2>
+  <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" novalidate>
+
+    <!-- Email Field -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        required
+        [(ngModel)]="email"
+        #emailModel="ngModel"
+        [class.is-invalid]="loginForm.submitted && emailModel.invalid">
+      <div class="invalid-feedback" *ngIf="loginForm.submitted && emailModel.invalid">
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        required
+        [(ngModel)]="password"
+        #passwordModel="ngModel"
+        [class.is-invalid]="loginForm.submitted && passwordModel.invalid">
+      <div class="invalid-feedback" *ngIf="loginForm.submitted && passwordModel.invalid">
+        Please enter your password.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+
+  </form>
+
+  <p class="text-center mt-3">
+    <small>Don't have an account? <a href="#">Register</a></small>
+  </p>
+</div>

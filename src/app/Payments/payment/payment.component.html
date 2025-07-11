@@ -1,0 +1,66 @@
+<div class="form-style formDesign p-3 mt-3">
+  <marquee behavior="scroll" direction="left" scrollamount="5"
+    style="background-color: #fef3c7; color: #92400e; padding: 10px; font-weight: bold; border-radius: 5px;">
+    🔔 UPI ID: <span style="color: #065f46;">harishkoundal077okicici</span> — Please make the payment to Harish Koundal.
+    💳 Make sure to verify the amount, UPI ID, and name before proceeding! ✅
+  </marquee>
+
+  <!-- Qr code  -->
+  <qrcode [qrdata]="qrData" [width]="200" [errorCorrectionLevel]="'M'" class="text-center"></qrcode>
+
+  <p class="text-center font_s">Scan to pay with any UPI app <br>
+
+    <img src="https://www.shutterstock.com/image-vector/kerala-india-19-07-2023-260nw-2334125251.jpg" class="img_s" alt="">
+  </p>
+  <div class="payment-icons">
+    <a href="upi://pay?pa=harishkoundal077@okicici&pn=Harish%20Koundal&am=100&cu=INR" target="_blank">
+      <img src="https://images.seeklogo.com/logo-png/33/2/google-pay-logo-png_seeklogo-334912.png" alt="GPay" />
+    </a>
+    <a href="upi://pay?pa=harishkoundal077@okicici&pn=Harish%20Koundal&am=100&cu=INR">
+      <img src="https://download.logo.wine/logo/PhonePe/PhonePe-Logo.wine.png" alt="PhonePe" />
+    </a>
+    <a href="upi://pay?pa=harishkoundal077@okicici&pn=Harish%20Koundal&am=100&cu=INR" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/CRED-LOGO2.png" alt="CRED" />
+    </a>
+    <a href="#">
+      <img src="https://download.logo.wine/logo/Paytm/Paytm-Logo.wine.png" alt="Paytm" />
+    </a>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTInfyRPyft4kUuQ-6CxOxjXyK8BGLJhQvKg&s"
+      style="width: 20px; height: 20px;" (click)="toggleCardFields()" alt="Card Icon" />
+  </div>
+
+
+
+  <div *ngIf="showCardFields" class="transition-all duration-300 visa-card">
+    <div class="logoContainer">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="23" height="23" viewBox="0 0 48 48"
+        class="svgLogo">
+        <path fill="#ff9800" d="M32 10A14 14 0 1 0 32 38A14 14 0 1 0 32 10Z"></path>
+        <path fill="#d50000" d="M16 10A14 14 0 1 0 16 38A14 14 0 1 0 16 10Z"></path>
+        <path fill="#ff3d00"
+          d="M18,24c0,4.755,2.376,8.95,6,11.48c3.624-2.53,6-6.725,6-11.48s-2.376-8.95-6-11.48 C20.376,15.05,18,19.245,18,24z">
+        </path>
+      </svg>
+    </div>
+    <div class="number-container">
+      <label class="input-label" for="cardNumber">CARD NUMBER</label>
+      <input class="inputstyle" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" name="cardNumber" type="text" />
+    </div>
+
+    <div class="name-date-cvv-container">
+      <div class="name-wrapper">
+        <label class="input-label" for="holderName">CARD HOLDER</label>
+        <input class="inputstyle" id="holderName" placeholder="NAME" type="text" />
+      </div>
+
+      <div class="expiry-wrapper">
+        <label class="input-label" for="expiry">VALID THRU</label>
+        <input class="inputstyle" id="expiry" placeholder="MM/YY" type="text" />
+      </div>
+      <div class="cvv-wrapper">
+        <label class="input-label" for="cvv">CVV</label>
+        <input class="inputstyle" placeholder="***" maxlength="3" id="cvv" type="password" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+# folderStructure_payment initgit add README.mdgit commit -m first commitgit branch -M maingit remote add origin https://github.com/harish9609/folderStructure_payment.gitgit push -u origin main

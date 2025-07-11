@@ -1,0 +1,32 @@
+<div class="d-flex flex-column justify-content-between bg-dark text-white vh-100 p-3 ">
+
+  <!-- TOP LINKS -->
+  <div>
+    <h5 class="text-center mb-4"><img
+        src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"
+        style="width: 50px; height: 50px;  mix-blend-mode: color-burn;"></h5>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a routerLink="/dashboard" class="nav-link text-white">Dashboard</a>
+      </li>
+      <li class="nav-item">
+
+        <a routerLink="/profile" class="nav-link text-white">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/settings" class="nav-link text-white">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/payment" class="nav-link text-white">Payment Method</a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- BOTTOM LOGOUT -->
+  <div>
+    <hr class="bg-secondary">
+    <a (click)="logout()" class="nav-link text-danger">
+      <i class="bi bi-box-arrow-right"></i> Logout
+    </a>
+  </div>
+</div>
