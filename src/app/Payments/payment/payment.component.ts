@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class PaymentComponent {
   //url of payment
+  tset5:any
+
 qrData: string = 'upi://pay?pa=harishkoundal077@okicici&pn=Harish%20Koundal&am=100';
 
 

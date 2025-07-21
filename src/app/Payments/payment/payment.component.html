@@ -1,16 +1,16 @@
 <div class="form-style formDesign p-3 mt-3">
-  <marquee behavior="scroll" direction="left" scrollamount="5"
-    style="background-color: #fef3c7; color: #92400e; padding: 10px; font-weight: bold; border-radius: 5px;">
-    🔔 UPI ID: <span style="color: #065f46;">harishkoundal077okicici</span> — Please make the payment to Harish Koundal.
-    💳 Make sure to verify the amount, UPI ID, and name before proceeding! ✅
-  </marquee>
+ <marquee behavior="scroll" direction="left" scrollamount="5"
+  style="background-color: #fef3c7; color: #92400e; padding: 10px; font-weight: bold; border-radius: 5px;"
+  onmouseover="this.stop();" onmouseout="this.start();">
+  🔔 UPI ID: <span style="color: #065f46;">test</span> — Please make the payment to .
+  💳 Make sure to verify the amount, UPI ID, and name before proceeding! ✅
+</marquee>
 
   <!-- Qr code  -->
   <qrcode [qrdata]="qrData" [width]="200" [errorCorrectionLevel]="'M'" class="text-center"></qrcode>
-
   <p class="text-center font_s">Scan to pay with any UPI app <br>
-
-    <img src="https://www.shutterstock.com/image-vector/kerala-india-19-07-2023-260nw-2334125251.jpg" class="img_s" alt="">
+    <img src="https://www.shutterstock.com/image-vector/kerala-india-19-07-2023-260nw-2334125251.jpg" class="img_s"
+      alt="">
   </p>
   <div class="payment-icons">
     <a href="upi://pay?pa=harishkoundal077@okicici&pn=Harish%20Koundal&am=100&cu=INR" target="_blank">

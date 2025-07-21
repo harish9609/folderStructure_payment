@@ -7,6 +7,7 @@ import { LoginComponent } from './Layout/login/login.component';
 
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { SettingComponent } from './setting/setting.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,8 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       // You can replace this with ProfileComponent later
       { path: 'profile', component: LoginComponent },
-       { path: 'payment',component:PaymentComponent}
+       { path: 'payment',component:PaymentComponent},
+       { path: 'setting',component:SettingComponent}
     ]
   },
   { path: '**', redirectTo: '' }

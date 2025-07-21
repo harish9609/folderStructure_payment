@@ -1,0 +1,91 @@
+<div class="container-fluid  mt-4">
+  <div class="formDesign p-2">
+    <h5 id="hs_head" class="d-flex align-items-center"><i class='bx bxs-user-detail fs-4'></i>&nbsp; Fill User Detail
+    </h5>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="row p-2">
+        <!-- First Name -->
+        <div class="col-md-4">
+          <label class="form-label required">First Name</label>
+          <input type="text" class="form-control" formControlName="firstName">
+        </div>
+
+        <!-- Middle Name -->
+        <div class="col-md-4">
+          <label class="form-label">Middle Name</label>
+          <input type="text" class="form-control" formControlName="middleName">
+        </div>
+
+        <!-- Last Name -->
+        <div class="col-md-4">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName">
+        </div>
+        <div class="col-md-4 mt-2">
+          <label class="form-label required">Password</label>
+          <input type="text" class="form-control" formControlName="Password">
+        </div>
+
+        <!-- Contact No -->
+        <div class="col-md-4 mt-2">
+          <label class="form-label required">Contact No</label>
+          <input type="text" class="form-control" formControlName="contactNo" maxlength="10">
+        </div>
+
+        <!-- Gender -->
+        <div class="col-md-4 mt-2">
+          <label class="form-label required">Select Gender</label>
+          <select class="form-select" formControlName="selectGender">
+            <option value="">-- select --</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+          </select>
+        </div>
+
+        <!-- Upload PDF -->
+        <div class="col-md-4 mt-2">
+          <label class="form-label required">Upload Aadhaar Card (PDF)</label>
+          <input type="file" class="form-control" (change)="onFileChange($event)">
+          <!-- <div *ngIf="submitted && fileInvalid" class="invalid-feedback">
+            Please upload a valid PDF file.
+          </div> -->
+        </div>
+
+        <div class="col-md-12 text-center mt-4">
+          <button class="btn btn-outline-primary" type="submit">Save</button>
+        </div>
+      </div>
+    </form>
+    <!-- ✅ Display Details in Table After Successful Submit -->
+    <!-- <div *ngIf="savedData" class="mt-4"> -->
+    <h5>Submitted User Details:</h5>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr class="text-center">
+          <th>First Name</th>
+          <th>Middle Name</th>
+          <th>Last Name</th>
+          <th>Contact No</th>
+          <th>Gender</th>
+          <!-- <th>Uploaded File Name</th> -->
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr *ngFor="let user of users">
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.middleName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.contactNo }}</td>
+          <td>{{ user.selectGndr == '1' ? 'Male' : 'Female' }}</td>
+          <td>
+            <i class='bx bxs-file-pdf text-primary fs-5 me-2'></i>
+            <i class='bx bxs-trash-alt text-danger fs-5' style="cursor: pointer;" (click)="onDelete()"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<!-- </div> -->

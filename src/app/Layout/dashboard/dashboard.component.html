@@ -4,28 +4,89 @@
     <h1>India's No. 1 online <br> bus ticket booking site</h1>
   </div>
 </div>
-<div class="card p-4 card_adj">
+<div class="card p-4 card_adj rounded-pill">
 
   <div class="row font_f">
     <div class="col-md-3">
       <label for="text">From</label>
-      <input type="text" class="form-control" placeholder="">
+      <input type="text" class="form-control rounded-pill input_adj" [(ngModel)]="from" placeholder="">
     </div>
     <div class="col-md-3">
       <label for="">To</label>
-      <input type="text" class="form-control" placeholder="">
+      <input type="text" class="form-control rounded-pill input_adj" [(ngModel)]="to" placeholder="">
     </div>
     <div class="col-md-2">
       <label for="">Date Of Departure</label>
-      <input type="date" class="form-control" name="" id="">
+      <input type="date" class="form-control rounded-pill input_adj" [(ngModel)]="departDate">
     </div>
     <div class="col-md-2">
       <label for="">Date Of Return</label>
-      <input type="date" class="form-control" name="" id="">
+      <input type="date" class="form-control rounded-pill" [(ngModel)]="returnDate">
     </div>
-    <div class="col-md-2">
-      <button class="btn btn-outline-primary mt-3">Search</button>
+    <div class="col-md-2 ">
+      <button class="btn btn-outline-primary mt-3 rounded-pill d-flex align-items-center" (click)="onSearchClick()">
+        <i class='bx bx-search-alt-2'></i>&nbsp;Search
+      </button>
     </div>
   </div>
+
+</div>
+<div class="row mt-3">
+  <div class="col-md-3">
+    <!-- <div class="card"> -->
+    <div class="filter-container">
+      <h3>Filter buses</h3>
+
+      <div class="filter-tags">
+        <button><i class="fa-solid fa-fan"></i> AC (3)</button>
+        <button><i class="fa-solid fa-chair"></i> SEATER (7)</button>
+        <button><i class="fa-solid fa-wind"></i> NONAC (4)</button>
+        <button><i class="fa-solid fa-clock"></i> 18:00–24:00 (2)</button>
+        <button><i class="fa-solid fa-star"></i> High Rated Buses (6)</button>
+      </div>
+
+      <div class="filter-section">
+        <div class="accordion">
+          <div class="accordion-header">Departure time from source <span>&#9660;</span></div>
+        </div>
+        <div class="accordion">
+          <div class="accordion-header">Arrival time at destination <span>&#9660;</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- </div> -->
+  </div>
+  <div class="col-md-9">
+    <div *ngFor="let bus of busList" class="bus-card">
+      <div class="via-route">Via {{ bus.via }}</div>
+      <div class="bus-details">
+        <div class="left">
+          <div class="bus-name">{{ bus.name }}</div>
+          <div class="bus-type">{{ bus.type }}</div>
+        </div>
+        <div class="center">
+          <div class="rating">
+            <span class="star">&#9733;</span> {{ bus.rating }}
+            <div class="count">{{ bus.ratingCount }}</div>
+          </div>
+          <div class="time">
+            <strong>{{ bus.startTime }}</strong> — <strong>{{ bus.endTime }}</strong>
+          </div>
+          <div class="duration">
+            {{ bus.duration }} • <span class="seats">{{ bus.seats }}</span>
+          </div>
+        </div>
+        <div class="right">
+          <div class="price">₹{{ bus.price }}</div>
+          <div class="onwards">Onwards</div>
+          <button class="view-seats" (click)="showSeat()">View seats</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
 
 </div>

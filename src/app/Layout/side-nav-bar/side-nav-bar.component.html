@@ -1,6 +1,6 @@
-<div class="d-flex flex-column justify-content-between bg-dark text-white vh-100 p-3 ">
+<!-- <div class="d-flex flex-column justify-content-between bg-dark text-white vh-100 p-3 ">
 
-  <!-- TOP LINKS -->
+
   <div>
     <h5 class="text-center mb-4"><img
         src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740"
@@ -14,7 +14,7 @@
         <a routerLink="/profile" class="nav-link text-white">Profile</a>
       </li>
       <li class="nav-item">
-        <a routerLink="/settings" class="nav-link text-white">Settings</a>
+        <a routerLink="/setting" class="nav-link text-white">Settings</a>
       </li>
       <li class="nav-item">
         <a routerLink="/payment" class="nav-link text-white">Payment Method</a>
@@ -22,11 +22,33 @@
     </ul>
   </div>
 
-  <!-- BOTTOM LOGOUT -->
   <div>
     <hr class="bg-secondary">
     <a (click)="logout()" class="nav-link text-danger">
       <i class="bi bi-box-arrow-right"></i> Logout
     </a>
   </div>
+</div> -->
+
+
+<div class="sidebar">
+  <div class="profile">
+    <img src="https://ui-avatars.com/api/?name=sachu+bawa" alt="Profile">
+    <span>Welcom User</span>
+  </div>
+
+  <ul class="menu">
+    <li><a href="#" class="active">Dashboard</a></li>
+    <li> <a routerLink="/profile" class="nav-link text-white">Profile</a>
+    </li>
+    <li> <a routerLink="/setting" class="nav-link text-white">Settings</a></li>
+
+
+
+    <li><a href="#">Pages</a></li>
+    <li><a href="#">Performance</a></li>
+    <li><a href="#">Tags</a></li>
+    <li><a href="#">Members</a></li>
+    <li><a href="#">Design</a></li>
+  </ul>
 </div>
