@@ -1,3 +1,191 @@
-table{
-  font-size: 0.8rem;
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
 }
+
+.bar_chart-container {
+  width: 550px;
+  margin: 50px auto;
+  border-left: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  padding: 10px 30px 30px 30px;
+  position: relative;
+}
+
+.bar_chart-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 250px;
+  position: relative;
+}
+
+.bar {
+  width: 40px;
+  /* border-radius: 4px; */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+
+  /* animation setup */
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: growBar 1s ease-out forwards;
+}
+
+/* bar colors */
+.bar:nth-child(1){background: steelblue; height: 65%; animation-delay: 0.1s;}
+.bar:nth-child(2){background: indianred; height: 55%; animation-delay: 0.2s;}
+.bar:nth-child(3){background: yellowgreen; height: 50%; animation-delay: 0.3s;}
+.bar:nth-child(4){background: mediumturquoise; height: 90%; animation-delay: 0.4s;}
+.bar:nth-child(5){background: mediumpurple; height: 70%; animation-delay: 0.5s;}
+.bar:nth-child(6){background: skyblue; height: 65%; animation-delay: 0.6s;}
+.bar:nth-child(7){background: rgb(225, 143, 237); height: 50%; animation-delay: 0.7s;}
+.bar:nth-child(8){background: olive; height: 60%; animation-delay: 0.8s;}
+.bar:nth-child(9){background: cornflowerblue; height: 45%; animation-delay: 0.9s;}
+.bar:nth-child(10){background: orange; height: 40%; animation-delay: 1s;}
+.bar:nth-child(11){background: chocolate; height: 35%; animation-delay: 1.1s;}
+.bar:nth-child(12){background: firebrick; height: 30%; animation-delay: 1.2s;}
+
+/* keyframes for grow effect */
+@keyframes growBar {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* X-axis labels */
+.x-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Y-axis gridlines */
+.y-grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+}
+.y-grid div {
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid #ccc;
+  font-size: 12px;
+  color: #333;
+}
+.y-grid div span {
+  position: absolute;
+  left: -35px;
+  top: -8px;
+}
+.y-grid div:nth-child(1){top:0%;}
+.y-grid div:nth-child(2){top:20%;}
+.y-grid div:nth-child(3){top:40%;}
+.y-grid div:nth-child(4){top:60%;}
+.y-grid div:nth-child(5){top:80%;}
+.y-grid div:nth-child(6){top:100%;}
+
+/* Labels for highest/lowest */
+.highest {
+  position: absolute;
+  top: 10%;
+  left: 32%;
+  font-size: 13px;
+  color: black;
+}
+.lowest {
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  font-size: 13px;
+  color: black;
+}
+
+
+
+
+/* line chart css */
+    .chart-container {
+      max-width: 550px;
+      margin: 10px auto;
+      padding: 10px;
+      border: 1px solid #e5e5e5;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .line {
+      fill: none;
+      stroke-width: 3px;
+      stroke-linejoin: round;
+      stroke-linecap: round;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: draw 2.5s ease forwards;
+    }
+    @keyframes draw {
+      to { stroke-dashoffset: 0; }
+    }
+    .blue-line { stroke: #007bff; }
+    .pink-line { stroke: #ff3b7f; }
+
+    .point {
+      fill: #fff;
+      stroke-width: 3px;
+      r: 6;
+      transition: all 0.3s ease;
+    }
+    .point:hover {
+      r: 10;
+      cursor: pointer;
+    }
+    .blue-point { stroke: #007bff; }
+    .pink-point { stroke: #ff3b7f; }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-top: 15px;
+      font-size: 10px;
+    }
+    .legend div {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .legend span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .blue-dot { background: #007bff; }
+    .pink-dot { background: #ff3b7f; }
+
+    .grid line {
+      stroke: #ddd;
+      stroke-width: 1;
+    }
+    .axis {
+      stroke: #aaa;
+      stroke-width: 1.5;
+    }
+    .labels {
+      font-size: 12px;
+      fill: #555;
+    }
+
+    /* pi chart code here */
+
+    

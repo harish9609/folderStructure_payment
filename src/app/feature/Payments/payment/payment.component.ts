@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -9,7 +10,7 @@ export class PaymentComponent {
   //url of payment
   tset5:any
 
-qrData: string = 'upi://pay?pa=harishkoundal077@okicici&pn=Harish%20Koundal&am=100';
+qrData: string = 'upi://pay?pa=harishkoundal077@okicici&pn=Harish%20Koundal&am=99999';
 
 
 showCardFields = false;

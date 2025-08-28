@@ -1,5 +1,5 @@
 import { UsersService } from './../Layout/users.service';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
@@ -18,7 +18,8 @@ export class SettingComponent {
 
   constructor(
     private fb: FormBuilder,
-    private userService: UsersService
+    private userService: UsersService,
+    private elRef: ElementRef
   ) {
     this.userForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -101,8 +102,6 @@ export class SettingComponent {
   });
 
 }
-
-
   onDelete() {
     this.savedData = null;
     this.uploadedFile = null;
@@ -119,4 +118,56 @@ export class SettingComponent {
       }
     });
   }
+
+ data = [
+    { label: "Jan", value: 65, color: "steelblue" },
+    { label: "Feb", value: 55, color: "indianred" },
+    { label: "Mar", value: 70, color: "yellowgreen" },
+    { label: "Apr", value: 90, color: "mediumturquoise" },
+    { label: "May", value: 45, color: "mediumpurple" },
+    { label: "Jun", value: 80, color: "orange" },
+    { label: "Jul", value: 35, color: "chocolate" },
+    { label: "Aug", value: 50, color: "firebrick" },
+    { label: "Sep", value: 60, color: "cornflowerblue" },
+    { label: "Oct", value: 75, color: "seagreen" },
+    { label: "Nov", value: 40, color: "goldenrod" },
+    { label: "Dec", value: 10, color: "darkorchid" }
+  ];
+
+
+
+  months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  // Y-axis max value
+  maxY = 400;
+
+  // Series data (can come from API)
+  seriesA = [60, 120, 90, 200, 160, 240, 180, 140, 190, 230, 210, 150];
+  seriesB = [100, 160, 70, 90, 140, 280, 230, 170, 200, 140, 120, 100];
+
+  // Chart size
+  chartWidth = 850;
+  chartHeight = 350;
+  paddingLeft = 60;
+  paddingTop = 50;
+
+  // Convert data → SVG coordinates
+  getPoints(data: number[]): string {
+    const stepX = (this.chartWidth - this.paddingLeft) / (this.months.length - 1);
+    return data.map((val, i) => {
+      const x = this.paddingLeft + i * stepX;
+      const y = this.chartHeight - (val / this.maxY) * (this.chartHeight - this.paddingTop) + this.paddingTop;
+      return `${x},${y}`;
+    }).join(' ');
+  }
+
+  getCircles(data: number[]): {cx:number, cy:number}[] {
+    const stepX = (this.chartWidth - this.paddingLeft) / (this.months.length - 1);
+    return data.map((val, i) => {
+      const cx = this.paddingLeft + i * stepX;
+      const cy = this.chartHeight - (val / this.maxY) * (this.chartHeight - this.paddingTop) + this.paddingTop;
+      return { cx, cy };
+    });
+  }
+
 }

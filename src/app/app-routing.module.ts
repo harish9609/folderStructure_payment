@@ -1,4 +1,4 @@
-import { PaymentComponent } from './Payments/payment/payment.component';
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -11,11 +11,9 @@ import { SettingComponent } from './setting/setting.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: AuthLayoutComponent,
-    children: [
-      { path: '', component: LoginComponent }
-    ]
+    path: 'feature',
+    loadChildren: () =>
+      import('./feature/feature.module').then(m => m.FeatureModule)
   },
   {
     path: '',
@@ -24,10 +22,10 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       // You can replace this with ProfileComponent later
       { path: 'profile', component: LoginComponent },
-       { path: 'payment',component:PaymentComponent},
-       { path: 'setting',component:SettingComponent}
+      { path: 'setting', component: SettingComponent }
     ]
   },
+  { path: 'feature', loadChildren: () => import('./feature/feature.module').then(m => m.FeatureModule) },
   { path: '**', redirectTo: '' }
 ];
 

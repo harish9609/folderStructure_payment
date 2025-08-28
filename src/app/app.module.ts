@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { QRCodeComponent } from 'angularx-qrcode';
-import { PaymentComponent } from './Payments/payment/payment.component';
 import { SettingComponent } from './setting/setting.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
@@ -26,7 +25,6 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     AuthLayoutComponent,
     MainLayoutComponent,
-    PaymentComponent,
     SettingComponent,
   ],
   imports: [
