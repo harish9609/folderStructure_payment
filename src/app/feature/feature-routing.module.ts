@@ -4,7 +4,7 @@ import { FeatureComponent } from './feature.component';
 import { PaymentComponent } from './Payments/payment/payment.component';
 
 const routes: Routes = [{ path: '', component: FeatureComponent },
-  { path:'payment',component:PaymentComponent}
+  // { path:'payment',component:PaymentComponent}
 
 ];
 

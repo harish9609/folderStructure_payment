@@ -71,7 +71,6 @@
     <h4 class="mt-4 ms-5">Bar Chart</h4>
     <div class="bar_chart-container">
       <div class="bar_chart-title"></div>
-
       <!-- Y-axis gridlines -->
       <div class="y-grid">
         <div><span>100</span></div>
@@ -81,20 +80,18 @@
         <div><span>20</span></div>
         <div><span>0</span></div>
       </div>
-
       <!-- Bars -->
       <div class="bars">
         <div *ngFor="let item of data" class="bar" [style.background]="item.color" [style.height.%]="item.value">
         </div>
       </div>
-
       <!-- X Labels -->
       <div class="x-labels">
         <span *ngFor="let item of data">{{ item.label }}</span>
       </div>
     </div>
   </div>
-  <div class="col-md-6"> 
+  <div class="col-md-6">
     <div class="chart-container shadow-sm">
       <h4>Line chart</h4>
       <svg width="100%" height="420" viewBox="0 0 900 420">
@@ -107,16 +104,13 @@
           <line x1="60" y1="290" x2="850" y2="290"></line>
           <line x1="60" y1="350" x2="850" y2="350"></line>
         </g>
-
         <!-- X Axis -->
         <line class="axis" x1="60" y1="350" x2="850" y2="350"></line>
         <!-- Y Axis -->
         <line class="axis" x1="60" y1="50" x2="60" y2="350"></line>
-
         <!-- Blue Line -->
         <polyline class="line blue-line"
           points="60,340 130,280 200,310 270,200 340,240 410,180 480,220 550,280 620,270 690,190 760,220 850,300" />
-
         <!-- Blue Points -->
         <circle class="point blue-point" cx="60" cy="340" />
         <circle class="point blue-point" cx="130" cy="280" />
@@ -130,11 +124,9 @@
         <circle class="point blue-point" cx="690" cy="190" />
         <circle class="point blue-point" cx="760" cy="220" />
         <circle class="point blue-point" cx="850" cy="300" />
-
         <!-- Pink Line -->
         <polyline class="line pink-line"
           points="60,300 130,240 200,330 270,310 340,260 410,140 480,190 550,250 620,220 690,280 760,300 850,320" />
-
         <!-- Pink Points -->
         <circle class="point pink-point" cx="60" cy="300" />
         <circle class="point pink-point" cx="130" cy="240" />

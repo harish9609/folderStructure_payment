@@ -7,7 +7,16 @@
 </marquee>
 
   <!-- Qr code  -->
-  <qrcode [qrdata]="qrData" [width]="200" [errorCorrectionLevel]="'M'" class="text-center"></qrcode>
+<!-- generate-qr.component.html -->
+<div class="text-center my-3" *ngIf="!showQR">
+  <button class="btn btn-primary" (click)="generateQR()">Generate QR</button>
+</div>
+
+<div class="text-center mt-3">
+  <div *ngIf="showQR" [@blurFadeIn]>
+    <qrcode [qrdata]="qrData" [width]="200" [errorCorrectionLevel]="'M'"></qrcode>
+  </div>
+</div>
   <p class="text-center font_s">Scan to pay with any UPI app <br>
     <img src="https://www.shutterstock.com/image-vector/kerala-india-19-07-2023-260nw-2334125251.jpg" class="img_s"
       alt="">
@@ -25,8 +34,8 @@
     <a href="#">
       <img src="https://download.logo.wine/logo/Paytm/Paytm-Logo.wine.png" alt="Paytm" />
     </a>
-    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTInfyRPyft4kUuQ-6CxOxjXyK8BGLJhQvKg&s"
-      style="width: 20px; height: 20px;" (click)="toggleCardFields()" alt="Card Icon" /> -->
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTInfyRPyft4kUuQ-6CxOxjXyK8BGLJhQvKg&s"
+      style="width: 20px; height: 20px;" (click)="toggleCardFields()" alt="Card Icon" />
   </div>
 
   <div *ngIf="showCardFields" class="transition-all duration-300 visa-card">

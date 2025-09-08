@@ -1,0 +1,9 @@
+<div class="game-container">
+  <canvas #gameCanvas width="600" height="400"></canvas>
+  <div class="controls">
+    <button (mousedown)="accelerate()" (mouseup)="stopAccelerate()">Accelerate</button>
+    <button (mousedown)="brake()" (mouseup)="stopBrake()">Brake</button>
+  </div>
+  <div *ngIf="gameOver" class="game-over">Game Over! Refresh to restart.</div>
+  <div class="score">Distance: {{ distance | number:'1.0-0' }} m</div>
+</div>

@@ -17,7 +17,7 @@ PaymentComponent
   ],
   imports: [
     CommonModule,
-    FeatureRoutingModule,
+    // FeatureRoutingModule,
     QRCodeComponent
 
   ]

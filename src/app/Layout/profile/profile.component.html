@@ -1,0 +1,163 @@
+<div class="container-fluid my-5">
+
+  <!-- Stepper Form -->
+  <fieldset class="border p-3" *ngIf="!formSubmitted">
+    <legend class="float-none w-auto px-2 text-dark fw-bold">Register :</legend>
+
+    <!-- Stepper Header -->
+    <div class="stepper-wrapper mb-4">
+      <div
+        class="stepper-item"
+        *ngFor="let step of steps; let i = index"
+        [ngClass]="{
+          'active': currentStep === i,
+          'completed': currentStep > i
+        }"
+        (click)="goToStep(i)"
+      >
+        <div class="step-counter">{{ i + 1 }}</div>
+        <div class="step-name">{{ step }}</div>
+      </div>
+    </div>
+
+    <!-- Stepper Form -->
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+
+      <!-- Step 1 -->
+      <div *ngIf="currentStep === 0" class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-control" formControlName="fullName">
+          <div class="text-danger" *ngIf="submitted && myForm.get('fullName')?.invalid">
+            Full Name is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Middle Name</label>
+          <input type="text" class="form-control" formControlName="middleName">
+          <div class="text-danger" *ngIf="submitted && myForm.get('middleName')?.invalid">
+            Middle Name is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="lastName">
+          <div class="text-danger" *ngIf="submitted && myForm.get('lastName')?.invalid">
+            Last Name is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Email</label>
+          <input type="text" class="form-control" formControlName="email">
+          <div class="text-danger" *ngIf="submitted && myForm.get('email')?.errors?.['required']">
+            Email is required
+          </div>
+          <div class="text-danger" *ngIf="submitted && myForm.get('email')?.errors?.['email']">
+            Invalid Email
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div *ngIf="currentStep === 1" class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Age</label>
+          <input type="number" class="form-control" formControlName="age">
+          <div class="text-danger" *ngIf="submitted && myForm.get('age')?.invalid">
+            Age is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Custom Field 1</label>
+          <input type="text" class="form-control" formControlName="custom1">
+          <div class="text-danger" *ngIf="submitted && myForm.get('custom1')?.invalid">
+            This field is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Custom Field 2</label>
+          <input type="text" class="form-control" formControlName="custom2">
+          <div class="text-danger" *ngIf="submitted && myForm.get('custom2')?.invalid">
+            This field is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Custom Field 3</label>
+          <input type="text" class="form-control" formControlName="custom3">
+          <div class="text-danger" *ngIf="submitted && myForm.get('custom3')?.invalid">
+            This field is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Custom Field 4</label>
+          <input type="text" class="form-control" formControlName="custom4">
+          <div class="text-danger" *ngIf="submitted && myForm.get('custom4')?.invalid">
+            This field is required
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label">Date of Birth</label>
+          <input type="date" class="form-control" formControlName="dob">
+          <div class="text-danger" *ngIf="submitted && myForm.get('dob')?.invalid">
+            Date of Birth is required
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div *ngIf="currentStep === 2" class="row g-3">
+        <div class="col-md-12">
+          <label class="form-label">Address</label>
+          <textarea class="form-control" rows="3" formControlName="address" maxlength="150"></textarea>
+          <small class="text-muted">
+            {{ myForm.get('address')?.value?.length || 0 }} / 150 characters
+          </small>
+          <div class="text-danger" *ngIf="submitted && myForm.get('address')?.invalid">
+            Address is required (max 150 characters)
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="d-flex justify-content-between mt-4">
+        <button *ngIf="currentStep < steps.length - 1" type="button" class="btn btn-primary" (click)="nextStep()">
+          Next
+        </button>
+        <button *ngIf="currentStep === steps.length - 1" type="submit" class="btn btn-success">
+          Submit
+        </button>
+      </div>
+    </form>
+  </fieldset>
+  <!-- View Form Section -->
+  <div *ngIf="formSubmitted" class="card shadow p-4">
+    <h3 class="mb-3">Form Details</h3>
+    <table class="table table-bordered">
+      <tbody>
+        <tr><th>Full Name</th><td>{{ formData.fullName }}</td></tr>
+        <tr><th>Middle Name</th><td>{{ formData.middleName }}</td></tr>
+        <tr><th>Last Name</th><td>{{ formData.lastName }}</td></tr>
+        <tr><th>Email</th><td>{{ formData.email }}</td></tr>
+        <tr><th>Age</th><td>{{ formData.age }}</td></tr>
+        <tr><th>Custom Field 1</th><td>{{ formData.custom1 }}</td></tr>
+        <tr><th>Custom Field 2</th><td>{{ formData.custom2 }}</td></tr>
+        <tr><th>Custom Field 3</th><td>{{ formData.custom3 }}</td></tr>
+        <tr><th>Custom Field 4</th><td>{{ formData.custom4 }}</td></tr>
+        <tr><th>Date of Birth</th><td>{{ formData.dob }}</td></tr>
+        <tr><th>Address</th><td>{{ formData.address }}</td></tr>
+      </tbody>
+    </table>
+
+    <button class="btn btn-primary mt-3 w-25" (click)="formSubmitted = false; currentStep = 0; myForm.reset(); submitted = false;">
+      🔄 Fill Again
+    </button>
+  </div>
+</div>

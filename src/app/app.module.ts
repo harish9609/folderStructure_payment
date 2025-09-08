@@ -15,6 +15,8 @@ import { SettingComponent } from './setting/setting.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
+import { ProfileComponent } from './Layout/profile/profile.component';
+import { GameComponent } from './Layout/game/game.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     AuthLayoutComponent,
     MainLayoutComponent,
     SettingComponent,
+    ProfileComponent,
+    GameComponent,
   ],
   imports: [
 

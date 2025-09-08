@@ -1,0 +1,28 @@
+.game-container {
+  position: relative;
+  width: 600px;
+  margin: auto;
+  user-select: none;
+}
+canvas {
+  background: #87CEEB; /* sky blue bg */
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 10px;
+}
+.controls button {
+  margin-right: 10px;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+.game-over {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  font-size: 24px;
+}
+.score {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
